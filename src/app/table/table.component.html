@@ -1,0 +1,63 @@
+<div class="container mt-4">
+    
+    <div class="row align-items-center mb-3">
+        <div class="col text-center">
+            <h1 class="text-center">Tus archivos</h1>
+        </div>
+        <div class="col-auto">
+            <div class="dropdown">
+                <button type="button" class="btn btn-primary dropdown-toggle"
+                id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false"> 
+                Actions
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <li> <a class="dropdown-item" href="#">New</a> </li>
+                    <li> <a class="dropdown-item" href="#">Delete</a> </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <table class="table table-strpied table-hover">
+                    <thead class="table-dark">
+                        <tr>
+                            <th scope="col">Seleccionar</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Fecha de creación</th>   
+                            <th scope="col">Dueños</th>
+                            </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let fileItem of fileItems">
+                            <td>
+                                <input type="checkbox">
+                            </td>
+                        
+                            <td>
+                                <span *ngIf="fileItem.type === 0">Carpeta</span>
+                                <span *ngIf="fileItem.type === 1">Archivo</span>
+                            </td>
+                            <td>
+                                {{fileItem.creation | date: 'shortDate'}}
+                            </td>
+        
+                            <td>
+                                <div *ngFor="let owner of fileItem.owners; let i = index" class="owner-badge">
+                                <img *ngIf="i < 3" [src]="owner.avatarUrl" [alt]="owner.name" class="avatar" />
+                                    <span *ngIf=" i >= 3">+{{fileItem.owners.length - 3}}</span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+
+
+ 
+
+    </div>
+</div>

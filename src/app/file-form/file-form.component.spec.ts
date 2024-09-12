@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { OwnerBadgesComponent } from './owner-badges.component';
+import { FileFormComponent } from './file-form.component';
 
-describe('OwnerBadgesComponent', () => {
-  let component: OwnerBadgesComponent;
-  let fixture: ComponentFixture<OwnerBadgesComponent>;
+describe('FileFormComponent', () => {
+  let component: FileFormComponent;
+  let fixture: ComponentFixture<FileFormComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [OwnerBadgesComponent]
+      imports: [FileFormComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(OwnerBadgesComponent);
+    fixture = TestBed.createComponent(FileFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

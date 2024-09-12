@@ -1,40 +1,6 @@
 <div class="container">
-    <button (click)="showNewItemForm = !showNewItemForm" class="btn btn-primary float-end">
-      {{ showNewItemForm ? 'Cancel' : 'New' }}
-    </button>
-  
+    <app-table></app-table>
+    <app-file-form (newFile)="handleNewFile($event)"></app-file-form>
 
-    <app-action-dropdown
-  (deleteItems)="handleDelete($event)"
-  (showNewItemForm)="showNewItemForm = true">
-</app-action-dropdown>
+</div>
 
-
-
-   <app-table-view
-   [fileItems]="fileItems"
-    (deleteItems)="handleDelete($event)"
-   >
-
-   </app-table-view>
-
-   <app-new-item-form
-   *ngIf="showNewItemForm"
-   [folders]="folders"
-   [owners]="owners"
-   (newItem)="handleNewItem($event)"
-   >
-
-   </app-new-item-form>
-
-   <app-modal
-   *ngIf="showModal"
-   [message]="modalMessage"
-   (confirm)="confirmDelete()"
-   (cancel)="cancelDelete()"
-   >
-
-   </app-modal>
-
-
-  </div>

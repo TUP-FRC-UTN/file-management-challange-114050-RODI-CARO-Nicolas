@@ -1,0 +1,36 @@
+<div class="mb-4">
+    <h3>Nuevo Archivo o Carpeta</h3>
+    <form #fileForm="ngForm" (ngSubmit)="onSubmit(fileForm)">
+        <div class="mb-3">
+            <label for="name" class="form-label">Nombre</label>
+            <input type="text" id="name" name="name" class="form-control" ngModel required>
+        </div>
+        <div class="mb-3">
+            <label for="date" class="form-label">Fecha de Creación</label>
+            <input type="datetime-local" id="date" name="date" class="form-control" ngModel required>
+        </div>
+        <div class="mb-3">
+            <label for="fileType" class="form-label">Tipo</label>
+            <select id="fileType" name="fileType" name="fileType" class="form-select" ngModel required>
+            <option *ngFor="let type of fileTypes" [value]="type"> {{type === 0 ? 'Carpeta' : 'Archivo' }} </option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="parentId" class="form-label">Carpeta Padre</label>
+            <select name="parentId" id="parentId" class="form-select" ngModel>
+                        <!-- Aquí Agregar las opciones de carpetas existentes -->
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="owners" class="form-label">Propietarios</label>
+            <select name="owners" id="owners" class="form-select" ngModel multiple>
+                <option *ngFor="let owner of owners" [value]="owner.name">
+                    <img [src]="owner.avatarUrl" class="avatar" [alt]="owner.name">
+                    {{owner.name}}
+                </option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Agregar</button>
+
+    </form>
+</div>
